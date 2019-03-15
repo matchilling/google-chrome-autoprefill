@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Google Chrome Auto-Prefill</title>
+	</head>
+	<body>
+    <pre>
+      Your Google Chrome version: <span id="google-chrome-version"></span>
+    </pre>
+    <h1>Simple form</h1>
+    <form action="index.html" method="get">
+      <input type="text" name="firstname" id="firstname" placeholder="First name"><br />
+      <input type="text" name="lastname" id="lastname" placeholder="Last name"><br />
+      <input type="text" name="address_line1" id="address_line1" placeholder="Address Line 1"><br />
+      <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code">
+      <input type="text" name="city" id="city" placeholder="City"><br />
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <hr />
+    <h1>Form with "autocomplete='off'" in form element</h1>
+    <form action="index.html" method="get" autocomplete="off">
+      <input type="text" name="firstname" id="firstname" placeholder="First name"><br />
+      <input type="text" name="lastname" id="lastname" placeholder="Last name"><br />
+      <input type="text" name="address_line1" id="address_line1" placeholder="Address Line 1"><br />
+      <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code">
+      <input type="text" name="city" id="city" placeholder="City"><br />
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <hr />
+    <h1>Form with "autocomplete='off'" in "Address Line 1" input element</h1>
+    <form action="index.html" method="get">
+      <input type="text" name="firstname" id="firstname" placeholder="First name"><br />
+      <input type="text" name="lastname" id="lastname" placeholder="Last name"><br />
+      <input type="text" name="address_line1" id="address_line1" placeholder="Address Line 1" autocomplete="off"><br />
+      <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code">
+      <input type="text" name="city" id="city" placeholder="City"><br />
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <h1>Form with "autocomplete='false'" in "Address Line 1" input element</h1>
+    <form action="index.html" method="get">
+      <input type="text" name="firstname" id="firstname" placeholder="First name"><br />
+      <input type="text" name="lastname" id="lastname" placeholder="Last name"><br />
+      <input type="text" name="address_line1" id="address_line1" placeholder="Address Line 1" autocomplete="false"><br />
+      <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code">
+      <input type="text" name="city" id="city" placeholder="City"><br />
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <h1>Form with "autocomplete='foo'" in "Address Line 1" input element</h1>
+    <form action="index.html" method="get">
+      <input type="text" name="firstname" id="firstname" placeholder="First name"><br />
+      <input type="text" name="lastname" id="lastname" placeholder="Last name"><br />
+      <input type="text" name="address_line1" id="address_line1" placeholder="Address Line 1" autocomplete="foo"><br />
+      <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code">
+      <input type="text" name="city" id="city" placeholder="City"><br />
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <script type="text/javascript">
+      function chromeVersion() {
+        var raw = navigator.userAgent.match(/Chrom(e|ium)\/([^\s]+)\./);
+        return raw ? raw[2] : false;
+      }
+      var element = document.getElementById('google-chrome-version');
+      element.innerHTML = chromeVersion();
+    </script>
+	</body>
+</html>
